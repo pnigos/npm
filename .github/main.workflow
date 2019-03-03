@@ -52,3 +52,12 @@ action "Docker Publish" {
   uses = "actions/docker/cli@master"
   args = "push github/npm"
 }
+
+workflow "New workflow" {
+  on = "push"
+  resolves = ["GraphQL query"]
+}
+
+action "GraphQL query" {
+  uses = "helaili/github-graphql-action@f9197781e4fe192857ae3a20eb7b028b78097d38"
+}
